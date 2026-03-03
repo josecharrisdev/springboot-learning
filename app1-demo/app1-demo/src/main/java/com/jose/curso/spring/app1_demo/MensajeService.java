@@ -4,6 +4,13 @@ import org.springframework.stereotype.Component;
 
 /* Esto es mi primer componente */
 /* @component: Crea un objeto de esta clase y adminístralo tú. Aquí empieza la Inversión de Control. */
+/*
+    @Component queda más para:
+        Utilidades
+        Mappers manuales
+        Helpers técnicos
+        Adaptadores 
+*/
 @Component
 public class MensajeService {
     

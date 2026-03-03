@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 public class App1DemoApplication {
 
+	/* El contenedor IoC se encarga de construir la instancia desde el constructor */
+	/* Con la etiqueta Autowired le estás diciendo a Spring que inyecte una dependencia automáticamente. */
+	/* La inyección se realizón con Autowired, no por constructor */
 	@Autowired
 	private NotificacionService notificacionService;
 
