@@ -9,3 +9,4 @@ de IA en la formación
 ### 1️⃣ Conceptos básicos
 - IoC: Inversión de control
 - DI: Inyección de dependencias
+- Bean: objeto que es instanciado, ensamblado y administrado por el contenedor IoC de Spring
