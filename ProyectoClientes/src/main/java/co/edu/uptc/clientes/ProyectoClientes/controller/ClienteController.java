@@ -27,7 +27,7 @@ public class ClienteController {
 	}
 	
 	@GetMapping("/cliente/{username}")
-	public Cliente obtenerCliente(@PathVariable("username") String username) {
+	public Cliente obtenerCliente(@PathVariable String username) {
 		for(Cliente cliente: this.clientes) {
 			if(cliente.getUsername().equals(username)) {
 				return cliente;
