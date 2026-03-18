@@ -32,9 +32,9 @@ public class CustomerController {
 	
 	@GetMapping("/customer/{username}")
 	public Customer getCustomer(@PathVariable String username) {
-		for(Customer cliente: this.customers) {
-			if(cliente.getUsername().equals(username)) {
-				return cliente;
+		for(Customer customer: this.customers) {
+			if(customer.getUsername().equals(username)) {
+				return customer;
 			}
 		}
 		return null;
