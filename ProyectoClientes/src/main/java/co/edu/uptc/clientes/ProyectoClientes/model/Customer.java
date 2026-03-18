@@ -1,20 +1,33 @@
 package co.edu.uptc.clientes.ProyectoClientes.model;
 
-public class Cliente {
+public class Customer {
+	private String id;
 	private String username;
 	private String name;
 	private String password;
 	
-	public Cliente() {
+	public Customer() {
 		
 	}
 	
 	
-	public Cliente(String username, String name, String password) {
+	public Customer(String id, String username, String name, String password) {
+		this.id = id;
 		this.username = username;
 		this.name = name;
 		this.password = password;
 	}
+	
+
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 
 	public String getUsername() {
 		return username;
