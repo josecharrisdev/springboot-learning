@@ -1,5 +1,6 @@
 package co.charris.jose.students.controller;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import co.charris.jose.students.model.Teacher;
 
@@ -28,14 +30,17 @@ public class TeacherController {
 	@PostMapping("/insertTeacher")
 	public ResponseEntity<?> insertTeacher(@RequestBody Teacher teacher){
 		if(this.getTeacherById(teacher.getId()).getStatusCode().equals(HttpStatus.OK)) {
+			URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/getTeacherById/{id}")
+					.buildAndExpand(teacher.getId()).toUri();
+			
 			this.listTeacher.add(teacher);
-			return ResponseEntity.status(HttpStatus.CREATED).body("Se creó el registro de profesor.");
+			return ResponseEntity.created(uri).body(teacher);
 		}
 		return ResponseEntity.notFound().build();
 	}
 	
 	
-	@GetMapping("/getTeacherById")
+	@GetMapping("/getTeacherById/{id}")
 	public ResponseEntity<?> getTeacherById(@PathVariable String id){
 		return this.listTeacher.stream().filter(teacher -> teacher.getId().equals(id))
 				.findFirst().map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
